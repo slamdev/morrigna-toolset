@@ -1,6 +1,7 @@
 package com.github.slamdev.morrigna.toolset;
 
 import com.github.slamdev.morrigna.toolset.business.OpenCampaignController;
+import com.github.slamdev.morrigna.toolset.business.dashboard.DashboardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,11 +33,11 @@ public class ToolsetApplication extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, IllegalAccessException, InstantiationException {
         LOGGER.info("Configuring stage: {}", stage);
         stage.setTitle("Hello World!");
         FXMLLoader loader = new FXMLLoader();
-        Class<OpenCampaignController> type = OpenCampaignController.class;
+        Class<?> type = DashboardController.class;
         String template = "/fxml/%s/%s.fxml";
         loader.setLocation(type.getResource(
                 String.format(
@@ -45,9 +46,9 @@ public class ToolsetApplication extends Application {
                         toLowerCase(type.getSimpleName().charAt(0)) + type.getSimpleName().substring(1).replace("Controller", "")
                 )
         ));
-        loader.setController(new OpenCampaignController());
+        loader.setController(type.newInstance());
         Parent root = loader.load();
-        stage.setScene(new Scene(root, 300, 250));
+        stage.setScene(new Scene(root, 800, 600));
         stage.show();
     }
 }
