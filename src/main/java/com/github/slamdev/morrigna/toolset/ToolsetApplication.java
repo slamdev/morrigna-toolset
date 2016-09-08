@@ -1,12 +1,16 @@
 package com.github.slamdev.morrigna.toolset;
 
+import com.github.slamdev.morrigna.toolset.business.OpenCampaignController;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 
+import java.io.IOException;
+
+import static java.lang.Character.toLowerCase;
 import static java.lang.Thread.setDefaultUncaughtExceptionHandler;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -28,14 +32,21 @@ public class ToolsetApplication extends Application {
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         LOGGER.info("Configuring stage: {}", stage);
         stage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(e -> LOGGER.info("Button clicked from event: {}", e));
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        FXMLLoader loader = new FXMLLoader();
+        Class<OpenCampaignController> type = OpenCampaignController.class;
+        String template = "/fxml/%s/%s.fxml";
+        loader.setLocation(type.getResource(
+                String.format(
+                        template,
+                        type.getPackage().getName().replaceAll("\\.", "/"),
+                        toLowerCase(type.getSimpleName().charAt(0)) + type.getSimpleName().substring(1).replace("Controller", "")
+                )
+        ));
+        loader.setController(new OpenCampaignController());
+        Parent root = loader.load();
         stage.setScene(new Scene(root, 300, 250));
         stage.show();
     }
