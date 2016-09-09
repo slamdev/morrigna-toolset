@@ -15,10 +15,6 @@ public class RegionResizer {
 
     private boolean initMinHeight;
 
-    private enum Direction {
-        LEFT, RIGHT, TOP, BOTTOM;
-    }
-
     public void enableResizing(Region region) {
         this.region = region;
         region.setOnMousePressed(this::mousePressed);
@@ -110,5 +106,9 @@ public class RegionResizer {
 
     private boolean isInDraggableZoneE(MouseEvent event) {
         return event.getX() > (region.getWidth() - RESIZE_MARGIN);
+    }
+
+    private enum Direction {
+        LEFT, RIGHT, TOP, BOTTOM;
     }
 }

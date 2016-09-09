@@ -49,6 +49,17 @@ idea {
     }
 }
 
+sourceSets {
+    main {
+        output.resourcesDir = 'build/classes/main'
+        output.classesDir = 'build/classes/main'
+    }
+    test {
+        output.resourcesDir = 'build/classes/test'
+        output.classesDir = 'build/classes/test'
+    }
+}
+
 repositories {
     jcenter()
     mavenCentral()
@@ -59,6 +70,7 @@ task wrapper(type: Wrapper) {
 }
 
 dependencies {
+    compile 'org.jboss.weld.se:weld-se-core:2.4.0.CR1'
     compile 'org.slf4j:slf4j-api:1.7.21'
     runtime 'ch.qos.logback:logback-classic:1.1.7'
     provided 'org.projectlombok:lombok:1.16.10'
