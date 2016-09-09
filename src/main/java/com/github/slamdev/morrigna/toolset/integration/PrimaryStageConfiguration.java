@@ -12,13 +12,13 @@ import java.util.Objects;
 import static java.util.stream.StreamSupport.stream;
 
 @ApplicationScoped
-public class ApplicationBootstrapper {
+public class PrimaryStageConfiguration {
 
     @Inject
     @Startup
     private Instance<Controller> controllers;
 
-    public void bootstrap(@Observes @Startup Stage stage) {
+    public void configure(@Observes @Startup Stage stage) {
         Controller controller = stream(controllers.spliterator(), false)
                 .filter(Objects::nonNull)
                 .findFirst()
