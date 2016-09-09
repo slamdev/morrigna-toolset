@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0"
-      prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+      prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml">
     <BorderPane VBox.vgrow="ALWAYS">
         <top>
-            <MenuBar BorderPane.alignment="CENTER">
+            <MenuBar>
                 <Menu mnemonicParsing="false" text="File">
                     <MenuItem mnemonicParsing="false" text="New"/>
                     <MenuItem mnemonicParsing="false" text="Open…"/>
@@ -39,13 +38,13 @@
             </MenuBar>
         </top>
         <left>
-            <VBox prefWidth="200.0">
+            <VBox prefWidth="200.0" fx:id="leftBox" minWidth="200">
                 <HBox>
                     <Label text="Label"/>
                     <Region HBox.hgrow="ALWAYS"/>
                     <Button mnemonicParsing="false" text="Button"/>
                 </HBox>
-                <TreeView showRoot="false">
+                <TreeView showRoot="false" VBox.vgrow="ALWAYS">
                     <TreeItem value="Root">
                         <children>
                             <TreeItem value="Objects">
@@ -61,7 +60,7 @@
             </VBox>
         </left>
         <center>
-            <TabPane tabClosingPolicy="UNAVAILABLE">
+            <TabPane minWidth="200">
                 <Tab text="Untitled Tab 1">
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                 </Tab>
@@ -71,13 +70,13 @@
             </TabPane>
         </center>
         <right>
-            <VBox prefWidth="200.0">
+            <VBox prefWidth="200.0" minWidth="200">
                 <HBox>
                     <Label text="Label"/>
                     <Region HBox.hgrow="ALWAYS"/>
                     <Button mnemonicParsing="false" text="Button"/>
                 </HBox>
-                <TreeView showRoot="false">
+                <TreeView showRoot="false" VBox.vgrow="ALWAYS">
                     <TreeItem value="Root">
                         <children>
                             <TreeItem value="Objects">
