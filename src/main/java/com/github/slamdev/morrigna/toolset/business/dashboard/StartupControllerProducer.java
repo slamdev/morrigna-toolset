@@ -9,7 +9,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class StartupControllerProvider {
+public class StartupControllerProducer {
 
     @Inject
     private Instance<DashboardController> controller;
@@ -17,9 +17,6 @@ public class StartupControllerProvider {
     @Produces
     @Startup
     public Controller produce() {
-        if (/*some conditional check*/ true) {
-            return controller.get();
-        }
-        return null;
+        return controller.get();
     }
 }

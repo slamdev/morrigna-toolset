@@ -1,103 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65">
-    <BorderPane VBox.vgrow="ALWAYS">
-        <top>
-            <MenuBar>
-                <Menu mnemonicParsing="false" text="File">
-                    <MenuItem mnemonicParsing="false" text="New"/>
-                    <MenuItem mnemonicParsing="false" text="Open…"/>
-                    <Menu mnemonicParsing="false" text="Open Recent"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem mnemonicParsing="false" text="Close"/>
-                    <MenuItem mnemonicParsing="false" text="Save"/>
-                    <MenuItem mnemonicParsing="false" text="Save As…"/>
-                    <MenuItem mnemonicParsing="false" text="Revert"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem mnemonicParsing="false" text="Preferences…"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem mnemonicParsing="false" text="Quit"/>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <MenuItem mnemonicParsing="false" text="Undo"/>
-                    <MenuItem mnemonicParsing="false" text="Redo"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem mnemonicParsing="false" text="Cut"/>
-                    <MenuItem mnemonicParsing="false" text="Copy"/>
-                    <MenuItem mnemonicParsing="false" text="Paste"/>
-                    <MenuItem mnemonicParsing="false" text="Delete"/>
-                    <SeparatorMenuItem mnemonicParsing="false"/>
-                    <MenuItem mnemonicParsing="false" text="Select All"/>
-                    <MenuItem mnemonicParsing="false" text="Unselect All"/>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <MenuItem mnemonicParsing="false" text="About MyHelloApp"/>
-                </Menu>
-            </MenuBar>
-        </top>
-        <left>
-            <VBox prefWidth="200.0" fx:id="leftBox" minWidth="200">
-                <HBox>
-                    <Label text="Label"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Button mnemonicParsing="false" text="Button"/>
-                </HBox>
-                <TreeView showRoot="false" VBox.vgrow="ALWAYS">
-                    <TreeItem value="Root">
-                        <children>
-                            <TreeItem value="Objects">
-                                <children>
-                                    <TreeItem value="Tree"/>
-                                </children>
-                            </TreeItem>
-                            <TreeItem value="Mobs"/>
-                            <TreeItem value="Items"/>
-                        </children>
-                    </TreeItem>
-                </TreeView>
-            </VBox>
-        </left>
-        <center>
-            <TabPane minWidth="200">
-                <Tab text="Untitled Tab 1">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                </Tab>
-                <Tab text="Untitled Tab 2">
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-                </Tab>
-            </TabPane>
-        </center>
-        <right>
-            <VBox prefWidth="200.0" minWidth="200">
-                <HBox>
-                    <Label text="Label"/>
-                    <Region HBox.hgrow="ALWAYS"/>
-                    <Button mnemonicParsing="false" text="Button"/>
-                </HBox>
-                <TreeView showRoot="false" VBox.vgrow="ALWAYS">
-                    <TreeItem value="Root">
-                        <children>
-                            <TreeItem value="Objects">
-                                <children>
-                                    <TreeItem value="Tree"/>
-                                </children>
-                            </TreeItem>
-                            <TreeItem value="Mobs"/>
-                            <TreeItem value="Items"/>
-                        </children>
-                    </TreeItem>
-                </TreeView>
-            </VBox>
-        </right>
-        <bottom>
-            <VBox>
-                <ScrollPane prefHeight="100">
-                    <TextArea prefHeight="98" prefWidth="798" editable="false"/>
-                </ScrollPane>
-                <Label text="Status"/>
-            </VBox>
-        </bottom>
-    </BorderPane>
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8.0.65">
+    <top>
+        <MenuBar>
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" text="New"/>
+                <MenuItem mnemonicParsing="false" text="Open…"/>
+                <Menu mnemonicParsing="false" text="Open Recent"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" text="Close"/>
+                <MenuItem mnemonicParsing="false" text="Save"/>
+                <MenuItem mnemonicParsing="false" text="Save As…"/>
+                <MenuItem mnemonicParsing="false" text="Revert"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" text="Preferences…"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" text="Quit"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+                <MenuItem mnemonicParsing="false" text="Undo"/>
+                <MenuItem mnemonicParsing="false" text="Redo"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" text="Cut"/>
+                <MenuItem mnemonicParsing="false" text="Copy"/>
+                <MenuItem mnemonicParsing="false" text="Paste"/>
+                <MenuItem mnemonicParsing="false" text="Delete"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" text="Select All"/>
+                <MenuItem mnemonicParsing="false" text="Unselect All"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <MenuItem mnemonicParsing="false" text="About MyHelloApp"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <left>
+        <VBox prefWidth="200.0" fx:id="leftBox" minWidth="200">
+            <HBox>
+                <Label text="Label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button mnemonicParsing="false" text="Button"/>
+            </HBox>
+            <TreeView showRoot="false" VBox.vgrow="ALWAYS">
+                <TreeItem value="Root">
+                    <children>
+                        <TreeItem value="Objects">
+                            <children>
+                                <TreeItem value="Tree"/>
+                            </children>
+                        </TreeItem>
+                        <TreeItem value="Mobs"/>
+                        <TreeItem value="Items"/>
+                    </children>
+                </TreeItem>
+            </TreeView>
+        </VBox>
+    </left>
+    <center>
+        <TabPane minWidth="200">
+            <Tab text="Untitled Tab 1">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </Tab>
+            <Tab text="Untitled Tab 2">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </Tab>
+        </TabPane>
+    </center>
+    <right>
+        <VBox prefWidth="200.0" minWidth="200">
+            <HBox>
+                <Label text="Label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button mnemonicParsing="false" text="Button"/>
+            </HBox>
+            <TreeView showRoot="false" VBox.vgrow="ALWAYS">
+                <TreeItem value="Root">
+                    <children>
+                        <TreeItem value="Objects">
+                            <children>
+                                <TreeItem value="Tree"/>
+                            </children>
+                        </TreeItem>
+                        <TreeItem value="Mobs"/>
+                        <TreeItem value="Items"/>
+                    </children>
+                </TreeItem>
+            </TreeView>
+        </VBox>
+    </right>
+    <bottom>
+        <VBox>
+            <ScrollPane prefHeight="100">
+                <TextArea prefHeight="98" prefWidth="798" editable="false"/>
+            </ScrollPane>
+            <Label text="Status"/>
+        </VBox>
+    </bottom>
+</BorderPane>
