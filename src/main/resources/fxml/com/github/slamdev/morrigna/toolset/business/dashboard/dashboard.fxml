@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.StatusBar?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8.0.65">
     <top>
         <MenuBar>
@@ -90,11 +91,6 @@
         </VBox>
     </right>
     <bottom>
-        <VBox>
-            <ScrollPane prefHeight="100">
-                <TextArea prefHeight="98" prefWidth="798" editable="false"/>
-            </ScrollPane>
-            <Label text="Status"/>
-        </VBox>
+        <StatusBar />
     </bottom>
 </BorderPane>
