@@ -21,7 +21,6 @@ apply plugin: 'propdeps-idea'
 
 apply from: 'gradle/validation.gradle'
 apply from: 'gradle/coverage.gradle'
-apply from: 'gradle/extendedTests.gradle'
 
 group 'com.github.slamdev'
 version '1.0.0'
