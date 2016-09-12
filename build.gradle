@@ -71,6 +71,7 @@ task wrapper(type: Wrapper) {
 
 dependencies {
     compile 'org.jboss.weld.se:weld-se-core:2.4.0.CR1'
+    runtime 'org.jboss:jandex:2.0.3.Final'
     compile 'org.slf4j:slf4j-api:1.7.21'
     runtime 'ch.qos.logback:logback-classic:1.1.7'
     provided 'org.projectlombok:lombok:1.16.10'
