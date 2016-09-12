@@ -5,6 +5,7 @@ import javafx.scene.layout.Region;
 
 import static javafx.scene.Cursor.*;
 
+@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.UnusedFormalParameter", "PMD.NullAssignment" /* TODO: Refactor class*/})
 public class RegionResizer {
 
     private static final int RESIZE_MARGIN = 4;
