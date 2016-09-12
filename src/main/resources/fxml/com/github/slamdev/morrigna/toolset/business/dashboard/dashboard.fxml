@@ -59,14 +59,7 @@
         </VBox>
     </left>
     <center>
-        <TabPane minWidth="200">
-            <Tab text="Untitled Tab 1">
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-            </Tab>
-            <Tab text="Untitled Tab 2">
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
-            </Tab>
-        </TabPane>
+        <TabPane minWidth="200" fx:id="tabs" />
     </center>
     <right>
         <VBox prefWidth="200.0" minWidth="200">

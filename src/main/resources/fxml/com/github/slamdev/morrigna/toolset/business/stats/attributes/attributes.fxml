@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65">
+    <VBox prefWidth="200.0">
+        <TitledPane text="Attributes">
+            <ListView/>
+            <Button mnemonicParsing="false" text="Add"/>
+        </TitledPane>
+        <TitledPane text="Derived Stats">
+            <ListView/>
+            <Button mnemonicParsing="false" text="Add"/>
+        </TitledPane>
+    </VBox>
+    <ScrollPane HBox.hgrow="ALWAYS">
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <padding>
+                <Insets top="25" right="25" bottom="25" left="25"/>
+            </padding>
+            <Label text="RefId:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Label text="Code:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <Label text="Range:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <Button text="Apply"/>
+            </HBox>
+        </GridPane>
+    </ScrollPane>
+</HBox>
