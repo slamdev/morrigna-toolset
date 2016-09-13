@@ -4,6 +4,7 @@ import com.github.slamdev.morrigna.toolset.integration.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,12 @@ public class AttributesController extends Controller<HBox> {
 
     @FXML
     private ListView<Attribute> attributes;
+
+    @Inject
+    private Instance<AttributeController> attributeController;
+
+    @FXML
+    private ScrollPane attributePane;
 
     @FXML
     public void initialize() {
@@ -61,6 +68,13 @@ public class AttributesController extends Controller<HBox> {
                         .build()
         ));
         attributes.setCellFactory(param -> new AttributeListCell());
+        attributes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showAttributeForm(newValue));
+    }
+
+    private void showAttributeForm(Attribute value) {
+        AttributeController attribute = attributeController.get();
+        attributePane.setContent(attribute.getRootNode());
+        attribute.fillValues(value);
     }
 
     private static class AttributeListCell extends ListCell<Attribute> {
