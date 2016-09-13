@@ -59,7 +59,7 @@
         </VBox>
     </left>
     <center>
-        <TabPane minWidth="200" fx:id="tabs" />
+        <TabPane minWidth="200" fx:id="tabs"/>
     </center>
     <right>
         <VBox prefWidth="200.0" minWidth="200">
@@ -84,6 +84,6 @@
         </VBox>
     </right>
     <bottom>
-        <StatusBar />
+        <StatusBar/>
     </bottom>
 </BorderPane>

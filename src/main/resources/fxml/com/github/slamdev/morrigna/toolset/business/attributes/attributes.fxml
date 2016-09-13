@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65">
-    <VBox prefWidth="200.0">
-        <TitledPane text="Attributes">
-            <ListView/>
+<HBox xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.65">
+    <TitledPane text="Attributes" contentDisplay="RIGHT" prefWidth="200.0">
+        <graphic>
             <Button mnemonicParsing="false" text="Add"/>
-        </TitledPane>
-        <TitledPane text="Derived Stats">
-            <ListView/>
-            <Button mnemonicParsing="false" text="Add"/>
-        </TitledPane>
-    </VBox>
+        </graphic>
+        <ListView fx:id="attributes"/>
+    </TitledPane>
     <ScrollPane HBox.hgrow="ALWAYS">
         <GridPane alignment="center" hgap="10" vgap="10">
             <padding>

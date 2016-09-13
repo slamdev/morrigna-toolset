@@ -1,6 +1,6 @@
 package com.github.slamdev.morrigna.toolset.business.dashboard;
 
-import com.github.slamdev.morrigna.toolset.business.stats.attributes.AttributesController;
+import com.github.slamdev.morrigna.toolset.business.attributes.AttributesController;
 import com.github.slamdev.morrigna.toolset.integration.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;
