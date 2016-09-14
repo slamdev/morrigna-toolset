@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 
 import static com.github.slamdev.morrigna.toolset.integration.LazySupplier.lazily;
 
-public abstract class Controller<T extends Parent> {
+public abstract class Controller<T extends Parent> implements HasRootNode {
 
     @Inject
     private FXMLTypedLoader loader;
@@ -18,6 +18,7 @@ public abstract class Controller<T extends Parent> {
         return loader.load(this);
     }
 
+    @Override
     public T getRootNode() {
         return rootNode.get();
     }

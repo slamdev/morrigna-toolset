@@ -2,29 +2,19 @@ package com.github.slamdev.morrigna.toolset.business.attributes;
 
 import com.github.slamdev.morrigna.toolset.integration.Controller;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.StreamSupport;
 
-import static java.util.stream.Collectors.toList;
+import static com.github.slamdev.morrigna.toolset.integration.CellFactoryBuilder.withProperty;
 
 @Dependent
 public class AttributesController extends Controller<HBox> {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(AttributesController.class);
-
-    @Inject
-    private Instance<AttributeType> attributeTypes;
 
     @FXML
     private ListView<Attribute> attributes;
@@ -37,8 +27,6 @@ public class AttributesController extends Controller<HBox> {
 
     @FXML
     public void initialize() {
-        List<AttributeType> types = StreamSupport.stream(attributeTypes.spliterator(), false).collect(toList());
-        LOGGER.info("Attribute types: {}", types);
         attributes.getItems().addAll(Arrays.asList(
                 Attribute.builder()
                         .refId("strAttr")
@@ -67,7 +55,7 @@ public class AttributesController extends Controller<HBox> {
                         .calculationScript("some fancy javascript")
                         .build()
         ));
-        attributes.setCellFactory(param -> new AttributeListCell());
+        attributes.setCellFactory(withProperty(Attribute::getName));
         attributes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showAttributeForm(newValue));
     }
 
@@ -75,17 +63,5 @@ public class AttributesController extends Controller<HBox> {
         AttributeController attribute = attributeController.get();
         attributePane.setContent(attribute.getRootNode());
         attribute.fillValues(value);
-    }
-
-    private static class AttributeListCell extends ListCell<Attribute> {
-        @Override
-        protected void updateItem(Attribute item, boolean empty) {
-            super.updateItem(item, empty);
-            if (empty || item == null || item.getName() == null) {
-                setText(null);
-            } else {
-                setText(item.getName());
-            }
-        }
     }
 }
