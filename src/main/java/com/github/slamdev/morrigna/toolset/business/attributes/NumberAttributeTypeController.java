@@ -10,6 +10,6 @@ public class NumberAttributeTypeController extends Controller<GridPane> implemen
 
     @Override
     public void fillValues(NumberAttributeType type) {
-
+        // TODO: implement
     }
 }

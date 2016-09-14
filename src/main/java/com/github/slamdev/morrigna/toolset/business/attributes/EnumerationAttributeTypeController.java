@@ -10,6 +10,6 @@ public class EnumerationAttributeTypeController extends Controller<GridPane> imp
 
     @Override
     public void fillValues(EnumerationAttributeType type) {
-
+        // TODO: implement
     }
 }

@@ -6,12 +6,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 
-import static com.github.slamdev.morrigna.toolset.integration.CellFactoryBuilder.withProperty;
 import static com.github.slamdev.morrigna.toolset.integration.InstanceStreamSupport.stream;
 import static com.github.slamdev.morrigna.toolset.integration.ReflectionUtil.hasGenericType;
 import static java.util.stream.Collectors.toList;
@@ -38,27 +40,26 @@ public class AttributeController extends Controller<GridPane> {
     private TextField descriptionField;
 
     @FXML
-    private ComboBox<AttributeType> types;
+    private ComboBox<AttributeTypeContainer> types;
 
     @FXML
     private AnchorPane typeForm;
 
     @FXML
     public void initialize() {
-        types.setCellFactory(withProperty(AttributeType::getCode));
         types.valueProperty().addListener((observable, oldValue, newValue) -> showAttributeTypeForm(newValue));
-        types.getItems().addAll(stream(attributeTypes).collect(toList()));
+        types.getItems().addAll(stream(attributeTypes).map(AttributeTypeContainer::new).collect(toList()));
     }
 
     @SuppressWarnings("unchecked")
-    private void showAttributeTypeForm(AttributeType type) {
+    private void showAttributeTypeForm(AttributeTypeContainer type) {
         AttributeTypeController controller = stream(attributeTypeControllers)
-                .filter(e -> hasGenericType(e, type))
+                .filter(e -> hasGenericType(e, type.getType()))
                 .findAny()
                 .orElseThrow(IllegalArgumentException::new);
         typeForm.getChildren().clear();
         typeForm.getChildren().add(controller.getRootNode());
-        controller.fillValues(type);
+        controller.fillValues(type.getType());
     }
 
     public void fillValues(Attribute attribute) {
@@ -66,6 +67,24 @@ public class AttributeController extends Controller<GridPane> {
         codeField.setText(attribute.getCode());
         nameField.setText(attribute.getName());
         descriptionField.setText(attribute.getDescription());
-        types.getSelectionModel().select(attribute.getType());
+        types.getSelectionModel().select(new AttributeTypeContainer(attribute.getType()));
+    }
+
+    @Data
+    @AllArgsConstructor
+    @EqualsAndHashCode(of = "code")
+    private static class AttributeTypeContainer {
+
+        private AttributeType type;
+        private String code;
+
+        public AttributeTypeContainer(AttributeType type) {
+            this(type, type.getCode());
+        }
+
+        @Override
+        public String toString() {
+            return code;
+        }
     }
 }
