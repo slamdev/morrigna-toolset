@@ -67,7 +67,14 @@ public class AttributeController extends Controller<GridPane> {
         codeField.setText(attribute.getCode());
         nameField.setText(attribute.getName());
         descriptionField.setText(attribute.getDescription());
-        types.getSelectionModel().select(new AttributeTypeContainer(attribute.getType()));
+        types.getSelectionModel().select(findFromSelect(attribute.getType()));
+    }
+
+    private AttributeTypeContainer findFromSelect(AttributeType type) {
+        return types.getItems().stream()
+                .filter(c -> c.getCode().equals(type.getCode()))
+                .peek(c -> c.setType(type))
+                .findAny().orElse(new AttributeTypeContainer(type));
     }
 
     @Data

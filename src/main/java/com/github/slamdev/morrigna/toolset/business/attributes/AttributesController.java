@@ -41,8 +41,8 @@ public class AttributesController extends Controller<HBox> {
                         .name("Class")
                         .description("A player class.")
                         .type(EnumerationAttributeType.builder()
-                                .descriptor(EnumerationAttributeType.Descriptor.builder().code("WAR").name("Warrior").description("Fighting class").build())
-                                .descriptor(EnumerationAttributeType.Descriptor.builder().code("MAG").name("Mage").description("Spell caster class").build())
+                                .descriptor(EnumerationAttributeType.Descriptor.builder().code("WAR").name("Warrior").description("Fighting class").tag("WAR_CLASS").tag("WAR").build())
+                                .descriptor(EnumerationAttributeType.Descriptor.builder().code("MAG").name("Mage").description("Spell caster class").tag("MAG_CLASS").build())
                                 .build()
                         )
                         .build(),
